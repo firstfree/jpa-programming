@@ -15,6 +15,9 @@ public class Main {
 		
 		try {
 			tx.begin();
+			
+			logic(em);
+			
 			tx.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -24,5 +27,8 @@ public class Main {
 		}
 		
 		emf.close();
+	}
+	
+	private static void logic(EntityManager em) {
 	}
 }

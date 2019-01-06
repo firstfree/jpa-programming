@@ -9,9 +9,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Builder.Default;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Member {
 	
@@ -26,6 +33,7 @@ public class Member {
 	private String street;
 	private String zipcode;
 	
+	@Default
 	@OneToMany(mappedBy = "member")
 	private List<Order> orders = new ArrayList<>();
 }
