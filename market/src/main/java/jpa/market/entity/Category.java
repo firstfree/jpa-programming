@@ -45,6 +45,5 @@ public class Category {
 	
 	public void addItem(Item item) {
 		items.add(item);
-		item.getCategories().add(this);
 	}
 }
