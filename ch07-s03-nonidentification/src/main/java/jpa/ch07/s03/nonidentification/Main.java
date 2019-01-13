@@ -5,6 +5,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+import jpa.ch07.s03.nonidentification.entity.Board;
+import jpa.ch07.s03.nonidentification.entity.BoardDetail;
 import jpa.ch07.s03.nonidentification.entity.GrandChild;
 
 public class Main {
@@ -30,7 +32,10 @@ public class Main {
 	}
 	
 	public static void logic(EntityManager em) {
-		GrandChild grandChild = em.find(GrandChild.class, 3L);
-		System.out.println(grandChild);
+		Board board = Board.builder().title("제목").build();
+		em.persist(board);
+		
+		BoardDetail boardDetail = BoardDetail.builder().board(board).content("내용").build();
+		em.persist(boardDetail);
 	}
 }
