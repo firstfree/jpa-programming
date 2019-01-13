@@ -34,9 +34,9 @@ public class Main {
 	public static void logic(EntityManager em) {
 		GrandChild grandChild = em.find(GrandChild.class,
 				GrandChildId.builder()
-					.child(ChildId.builder()
-						.parent("parentId")
-						.childId("childId")
+					.childId(ChildId.builder()
+						.parentId("parentId")
+						.id("childId")
 						.build())
 					.id("grandChildId")
 					.build());
