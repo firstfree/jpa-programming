@@ -7,7 +7,6 @@ import javax.persistence.Persistence;
 
 import jpa.ch07.s03.nonidentification.entity.Board;
 import jpa.ch07.s03.nonidentification.entity.BoardDetail;
-import jpa.ch07.s03.nonidentification.entity.GrandChild;
 
 public class Main {
 
