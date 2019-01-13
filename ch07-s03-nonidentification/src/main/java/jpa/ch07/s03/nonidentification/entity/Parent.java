@@ -1,7 +1,9 @@
 package jpa.ch07.s03.nonidentification.entity;
 
-import javax.persistence.EmbeddedId;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,8 +17,10 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Parent {
 	
-	@EmbeddedId
-	private ParentId parent;
+	@Id
+	@GeneratedValue
+	@Column(name = "PARENT_ID")
+	private Long id;
 	
 	private String name;
 }

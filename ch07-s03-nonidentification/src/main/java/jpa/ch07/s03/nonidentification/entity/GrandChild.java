@@ -17,16 +17,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Child {
+public class GrandChild {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "CHILD_ID")
+	@Column(name = "GRANDCHILD_ID")
 	private Long id;
 	
 	@ManyToOne
-	@JoinColumn(name = "PARENT_ID")
-	private Parent parent;
+	@JoinColumn(name = "CHILD_ID")
+	private Child child;
 	
 	private String name;
 }
