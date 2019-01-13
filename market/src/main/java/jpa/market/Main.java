@@ -5,6 +5,10 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+import jpa.market.entity.Delivery;
+import jpa.market.entity.Order;
+import jpa.market.entity.OrderItem;
+
 public class Main {
 	
 	public static void main(String[] args) {
@@ -30,5 +34,15 @@ public class Main {
 	}
 	
 	private static void logic(EntityManager em) {
+		Delivery delivery = new Delivery();
+		OrderItem orderItem1 = new OrderItem();
+		OrderItem orderItem2 = new OrderItem();
+		
+		Order order = new Order();
+		order.setDelivery(delivery);
+		order.addOrderItem(orderItem1);
+		order.addOrderItem(orderItem2);
+		
+		em.persist(order);
 	}
 }
