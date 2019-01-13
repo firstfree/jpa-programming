@@ -13,6 +13,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import jpa.market.entity.item.Item;
 import lombok.Data;
 
 @Data

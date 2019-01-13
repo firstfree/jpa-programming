@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import jpa.market.entity.item.Item;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

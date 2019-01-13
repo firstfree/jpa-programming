@@ -1,26 +1,27 @@
-package jpa.market.entity;
+package jpa.market.entity.item;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Builder.Default;
+import jpa.market.entity.Category;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
-public class Item {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "DTYPE")
+public abstract class Item {
 
 	@Id
 	@GeneratedValue
@@ -31,7 +32,12 @@ public class Item {
 	private int price;
 	private int stockQuantity;
 	
-	@Default
 	@ManyToMany(mappedBy = "items")
 	private List<Category> categories = new ArrayList<>();
+	
+	public Item(String name, int price, int stockQuantity) {
+		this.name = name;
+		this.price = price;
+		this.stockQuantity = stockQuantity;
+	}
 }
